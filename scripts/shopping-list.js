@@ -36,6 +36,7 @@ const shoppingList = (function(){
   
   function render() {
     // Filter item list if store prop is true by item.checked === false
+
     let items = store.items;
     if (store.hideCheckedItems) {
       items = store.items.filter(item => !item.checked);

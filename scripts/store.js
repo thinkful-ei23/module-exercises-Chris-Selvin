@@ -10,22 +10,21 @@ const store = (function () {
     let hideCheckedItems = false;
     let searchTerm = '';
     function findById(id) {
-        store.items.find(function(element){
+        this.items.find(function(element){
             if (element.id === id){
                 return element.id;
             }
-        }
+        });
     };
     function addItem(name) {
         try {
             Item.validateName(name);
-            store.items.push(Item.create(itemName));
+            this.items.push(Item.create(name));
         } catch(error) {
             console.log(`Cannot add item: ${error.message}`);
         }
-        render();
-        }
-    };
+        shoppingList.render();
+    }
     function findAndToggleChecked(id) {       
         const foundItem = this.findById(id);
         foundItem.checked = !foundItem.checked;
@@ -40,9 +39,9 @@ const store = (function () {
         const validItem = this.findById(id);
         console.log(`validItem: ${validItem}`);
         validItem.name = newName;
-        render();
-        }        
-    };
+        shoppingList.render();
+    }        
+
     function findAndDelete(id) {
         const indexToDelete = this.items.findIndex(findById(id));
         console.log(`this.items.findIndex(findById(id)): ${this.items.findIndex(findById(id))}`);
