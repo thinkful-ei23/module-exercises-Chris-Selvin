@@ -12,3 +12,14 @@ $(document).ready(function() {
 //console.log(foo);
 //console.log(Item);
 //console.log(foo);
+// const itemNames = [ '', 'apples', 'pears' ];
+//   itemNames.forEach(name => {
+//     try {
+//       Item.validateName(name);
+//       store.items.push(Item.create(name));
+//     } catch(error) {
+//       console.log(error);
+//       console.log('Cannot add item: ' + error.message);
+//     }
+//   });
+// shoppingList.render();
