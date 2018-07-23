@@ -10,12 +10,14 @@ const store = (function () {
     let hideCheckedItems = false;
     let searchTerm = '';
     function findById(id) {
-        this.items.find(function(element){
-            if (element.id === id){
-                return element.id;
-            }
+        store.items.find(function(element){
+          if (element.id === store.items.id){
+             return store.items.id;
+          }
         });
-    };
+    }
+
+    
     function addItem(name) {
         try {
             Item.validateName(name);
@@ -43,9 +45,7 @@ const store = (function () {
     }        
 
     function findAndDelete(id) {
-        const indexToDelete = this.items.findIndex(findById(id));
-        console.log(`this.items.findIndex(findById(id)): ${this.items.findIndex(findById(id))}`);
-        this.items.splice(indexToDelete);
+       this.items = this.items.filter(item => item.id !== id);
     }       
        
     return {
@@ -54,8 +54,10 @@ const store = (function () {
         searchTerm,
         findById,
         addItem,
-
+        findAndToggleChecked,
+        findAndUpdateName,        
+        findAndDelete,
     };         
- }() );
+ }());
 
 
